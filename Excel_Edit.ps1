@@ -30,9 +30,8 @@ $EXCEL.Visible = $false
 $BOOK = $EXCEL.Workbooks.Open($EXCEL_FILE, 0, $true)
 
 # OPEN SHEET
-$SHEET = $BOOK.Workbooks.Item($SHEET_NAME)
-#  ERROR:You cannot call a method on a null-valued expression.
-
+$SHEET = $BOOK.Worksheets.Item($SHEET_NAME)
+#  ERROR:インデックスが無効です。
 # SLECT CELL
 $Column1 = $SHEET.Range("A3:A6")
 #  ERROR:You cannot call a method on a null-valued expression.
