@@ -9,7 +9,7 @@
 # -------------
 
 # 出力ファイル名
-$OutputFileName = "$env:UserProfile\Desktop\RegList.csv"
+$OutputFileName = "RegList.csv"
 
 
 # -------------
@@ -28,10 +28,14 @@ $RegList = @()
 
 # レジストリ情報取得
 $RegInfo = Get-ChildItem -Path Registry::$RegPath -Recurse
-
+IF ($RegInfo -eq $null) {
+  $RegKeyName = $RegPath
+} ELSE {
+  $RegKeyName = $RegInfo.Name
+}
 # サブキーの情報取得
 # 再帰で全キーを取得しているはずなので各$RegInfo.Nameに対して値を取得していく
-foreach ($RegKey in $RegInfo.Name){
+foreach ($RegKey in $RegKeyName){
 
 	# KeyPathの取得
 		$KeyPath = $RegKey
@@ -65,7 +69,7 @@ foreach ($RegKey in $RegInfo.Name){
 }
 
 # リスト出力
-$RegList | Export-Csv $OutputFileName -Encoding Default 
+$RegList | Export-Csv $OutputFileName -Encoding Default -NoTypeInformation
 
 # 終了
 EXIT
