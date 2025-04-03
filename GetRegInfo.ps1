@@ -51,6 +51,10 @@ foreach ($RegKey in $RegKeyName){
 			$ValueType = $SubRegKey.GetValueKind($Value)
 		# 値
 			$ValueData = $SubRegKey.GetValue($Value)
+			IF ($ValueData -is [array]){
+				$ValueData="$ValueData"					
+			}
+				
 
 		# RegListItemは毎度初期化が必要
 			$RegListItem = New-Object psobject | Select-Object KeyPath,ValueName,Type,Data	
