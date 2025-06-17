@@ -15,4 +15,7 @@ REM バックアップ用フォルダの作成
 mkdir Q:\%TODAY%
 
 REM イメージバックアップ
-Dism /Capture-Image /ImageFile:Q:\%TODAY%\%ComputerName%_C.wim /CaptureDir:C:\ /Name:”My Windows partition”
+Dism /Capture-Image /ImageFile:Q:\%TODAY%\%ComputerName%_C.wim /CaptureDir:C:\ /Name:”Backup C”
+
+REM イメージバックアップ※Dドライブがある場合
+Dism /Capture-Image /ImageFile:Q:\%TODAY%\%ComputerName%_D.wim /CaptureDir:D:\ /Name:”Backup D”
