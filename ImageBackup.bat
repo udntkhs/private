@@ -2,15 +2,17 @@
 
 CD /d %~dp0
 REM ************************
-REM ƒCƒ[ƒWƒoƒbƒNƒAƒbƒv
+REM ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 REM
 REM 2025/6/17
 REM
 REM ************************
+SET TODAY=%DATE:~0,4%%DATE:~5,2%%DATE:~8,2%
+REM ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ç”¨ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã‚’é¸æŠ
+REM ã‚³ãƒãƒ³ãƒ‰ã‚’echoã—ã¦diskpartã«ãƒ‘ã‚¤ãƒ— or diskpartscriptä½œæˆ
 
-REM ƒCƒ[ƒWƒoƒbƒNƒAƒbƒv—pƒp[ƒeƒBƒVƒ‡ƒ“‚ğ‘I‘ğ
-REM ƒRƒ}ƒ“ƒh‚ğecho‚µ‚Ädiskpart‚ÉƒpƒCƒv or diskpartscriptì¬
+REM ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ç”¨ãƒ•ã‚©ãƒ«ãƒ€ã®ä½œæˆ
+mkdir Q:\%TODAY%
 
-
-REM ƒCƒ[ƒWƒoƒbƒNƒAƒbƒv
-Dism /Capture-Image /ImageFile:C:\my-windows-partition.wim /CaptureDir:C:\ /Name:hMy Windows partitionh
+REM ã‚¤ãƒ¡ãƒ¼ã‚¸ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
+Dism /Capture-Image /ImageFile:Q:\%TODAY%\%ComputerName%_C.wim /CaptureDir:C:\ /Name:â€My Windows partitionâ€
